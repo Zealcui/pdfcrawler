@@ -10,8 +10,10 @@ pdf crawler  script written in python
 -directory: directory to save crawled pdf file
 ##
 -starturl: url to start with
+
+#Example
 ##
--example: python pdfget.py ~/Desktop/temp http://www.autonlab.org/tutorials/
+pdfget.py ~/Desktop/temp http://www.autonlab.org/tutorials/
 
 #Todo:
 ##
