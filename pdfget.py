@@ -16,6 +16,7 @@ URL_TYPE = ('.html', '.htm', '')
 
 MAX_LOOP = 5000
 l = 0
+crawl_history = []
 url_queue = Queue.Queue()
 fetch_queue = Queue.Queue()
 
@@ -43,7 +44,10 @@ def parse(url, context=''):
 
       href_path = urlparse.urlparse(href).path
       ext = os.path.splitext(href_path)[1]
+      
       #check type
+      if href in crawl_history:continue
+
       if isMime(ext): fetch_queue.put(href)
       if isUrl(ext): url_queue.put(href)
   except Exception as e:
