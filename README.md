@@ -20,3 +20,5 @@ pdfget.py ~/Desktop/temp http://www.autonlab.org/tutorials/
 -Avoid cyclic crawling
 ##
 -Add more MIME type to crawl
+##
+-Add function to display progress
