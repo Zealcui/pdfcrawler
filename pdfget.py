@@ -31,7 +31,6 @@ def isUrl(input):
     if type == input:return True
   return False
 
-
 def parse(url, context=''):
   try:
     soup = BeautifulSoup(context)
@@ -39,9 +38,9 @@ def parse(url, context=''):
 
     for tag in tags:
       href = tag.get('href')
-      if href.startswith('/') or (href.find('/') == -1):
-        href = url + '/' + href
-              
+      if href.startswith('/') or (href.find('/') == -1): #if relative path, then normalize
+        href = urlparse.urljoin(url, href)
+
       href_path = urlparse.urlparse(href).path
       ext = os.path.splitext(href_path)[1]
       #check type
@@ -59,6 +58,7 @@ def fetch(dir):
       data_url = fetch_queue.get()
       file_path = dir + '/' + data_url.split('/')[-1]
       try:
+        if __debug__: print 'going to fetch: ' + data_url
         urllib.urlretrieve(data_url, file_path) #urllib2 raise error Todo:
       except:
         print 'error at fetching '+data_url
@@ -85,7 +85,7 @@ if __name__ == '__main__':
       break 
     else:
       cur_url = url_queue.get()
-      print 'start crawl: '+cur_url
+      if __debug__: 'start crawl: '+cur_url
       try: 
         response = urllib2.urlopen(cur_url)
         ret = response.read()
