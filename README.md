@@ -17,8 +17,4 @@ pdfget.py ~/Desktop/temp http://www.autonlab.org/tutorials/
 
 #Todo:
 ##
--Avoid cyclic crawling
-##
--Add more MIME type to crawl
-##
--Add function to display progress
+-Add function to display download progress
