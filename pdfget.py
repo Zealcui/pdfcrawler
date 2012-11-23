@@ -68,8 +68,8 @@ def fetch(dir):
         print 'error at fetching '+data_url
         continue
 
-  except:
-    print 'some error occur'  
+  except Exception as e:
+    print e  
 
 
 if __name__ == '__main__':
@@ -96,7 +96,6 @@ if __name__ == '__main__':
         parse(cur_url,ret)
         fetch(dir)                   
       
-      except:
-        #print 'error at: %s'%(ret) 
-        continue
+      except Exception as e:
+        print e
 
