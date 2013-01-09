@@ -39,8 +39,8 @@ def parse(url, context=''):
 
     for tag in tags:
       href = tag.get('href')
-      if href.startswith('/') or (href.find('/') == -1) or (href.startswith('./')) or (href.startswith('../')): #if relative path, then normalize
-        href = urlparse.urljoin(url, href)
+      ##if href.startswith('/') or (href.find('/') == -1) or (href.startswith('./')) or (href.startswith('../')): #if relative path, then normalize
+      href = urlparse.urljoin(url, href)
 
       href_path = urlparse.urlparse(href).path
       ext = os.path.splitext(href_path)[1]
