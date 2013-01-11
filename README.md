@@ -2,7 +2,8 @@ pdfcrawler
 ==========
 
 pdf crawler  script written in python 
-##prerequisite: BeautifulSoup <pip install BeautifulSoup> 
+##
+prerequisite: BeautifulSoup <pip install BeautifulSoup> 
 
 #Using
 ##
